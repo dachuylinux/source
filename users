@@ -7,7 +7,7 @@ QLVB_Lãnh đạo phòng: nvquan.hids
 QLVB_Lãnh đạo đơn vị: ppquoc.hids
 ############
 tenantOrgId: 72366
-database: 10.86.70.150
+database: 10.86.70.150:3306
 user: root
 pass: egov321p@ssw0rd
 
