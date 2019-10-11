@@ -5,5 +5,10 @@ QLVB_Văn thư: nlpmai.hids
 QLVB_chuyên viên: lchung.hids
 QLVB_Lãnh đạo phòng: nvquan.hids
 QLVB_Lãnh đạo đơn vị: ppquoc.hids
+############
+tenantOrgId: 72366
+database: 10.86.70.150
+user: root
+pass: egov321p@ssw0rd
 
 Để xem thêm thông tin + quyền của user: login user  nlpmai.hids > quản trị đơn vị > quản lý người dùng > phân quyền người dùng để xem thông tin chi tiết
