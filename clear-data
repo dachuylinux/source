@@ -1,0 +1,158 @@
+SET NOCOUNT ON
+BEGIN TRY
+BEGIN TRANSACTION
+-- First, delete users in User_ table
+Delete from user_ where userId in (select * from (select userId from user_ where status = 5) tblTmp)
+-- Delete related data belong to user
+DELETE FROM Account_ WHERE userId NOT IN (SELECT userId FROM User_) AND userId <> 0
+DELETE FROM Address WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Contact_ WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM EmailAddress WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM Phone WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM UserGroupRole WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM UserIdMapper WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Users_Groups WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Users_Orgs WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM Users_Permissions WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Users_Roles WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Users_UserGroups WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM UserTracker WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM AnnouncementsDelivery WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM AnnouncementsEntry WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM AnnouncementsFlag WHERE userId NOT IN (SELECT userId FROM User_)
+
+-- DELETE FROM BlogsCategory WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM BlogsEntry WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM BlogsStatsUser WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM BookmarksEntry WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM BookmarksFolder WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM CalEvent WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Chat_Entry WHERE fromUserid NOT IN (SELECT userId FROM User_)
+DELETE FROM Chat_Entry WHERE toUserid NOT IN (SELECT userId FROM User_)
+DELETE FROM Chat_Status WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM DLFileEntry WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM DLFileRank WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM DLFileShortcut WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM DLFileVersion WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM DLFolder WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM tTADLFolderSubscription WHERE userId NOT IN (SELECT userId FROM User_)
+
+
+-- DELETE FROM IGFolder WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM IGImage WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM JournalArticle WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM JournalFeed WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM JournalStructure WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM JournalTemplate WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM MBBan WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM MBCategory WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM MBMailingList WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM MBMessage WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM MBMessageFlag WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM MBStatsUser WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM tTAMBMessage WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM PasswordPolicy WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM PasswordTracker WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM PollsQuestion WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM PollsVote WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM RatingsEntry WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM SocialActivity WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM SocialRelation WHERE userid1 NOT IN (SELECT userId FROM User_)
+DELETE FROM SocialRelation WHERE userid2 NOT IN (SELECT userId FROM User_)
+DELETE FROM SocialRequest WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Subscription WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM AssetTagProperty WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM AssetVocabulary WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM AssetEntry WHERE userId NOT IN (SELECT userId FROM User_)
+
+-- DELETE FROM TasksProposal WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM TasksReview WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM WikiNode WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM WikiPage WHERE userId NOT IN (SELECT userId FROM User_)
+
+-- DELETE FROM WOL_MeetupsEntry WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM WOL_MeetupsRegistration WHERE userId NOT IN (SELECT userId FROM User_)
+-- DELETE FROM WOL_SVNRevision WHERE SVNUserid NOT IN (SELECT userId FROM User_)
+-- DELETE FROM WOL_WallEntry WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM CyrusUser WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM CyrusVirtual WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM MembershipRequest WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM PortletItem WHERE userId NOT IN (SELECT userId FROM User_)
+
+-- DELETE FROM Vocabulary WHERE userId NOT IN (SELECT userId FROM User_)
+
+DELETE FROM Website WHERE userId NOT IN (SELECT userId FROM User_)
+DELETE FROM Lock_ WHERE userId NOT IN (SELECT userId FROM User_)
+
+-- Delete other dependent data
+
+-- Get User classNameID
+DECLARE @ClassNameID BIGINT
+SELECT classNameId FROM ClassName_ WHERE value = 'com.liferay.portal.model.User'
+-- PRINT @ClassNameID
+DELETE FROM ExpandoValue WHERE ClassNameId = 10005 AND classpk NOT IN (SELECT userId FROM User_)
+DELETE FROM MBDiscussion WHERE ClassNameId = 10005 AND classPK NOT IN (SELECT userId FROM User_)
+DELETE FROM PasswordPolicyRel WHERE ClassNameId = 10005 AND classPK NOT IN (SELECT userId FROM User_)
+DELETE FROM RatingsStats WHERE ClassNameId = 10005 AND classPK NOT IN (SELECT userId FROM User_)
+DELETE FROM WebDAVProps WHERE ClassNameId = 10005 AND classPK NOT IN (SELECT userId FROM User_)
+
+-- Clear other dirty data which belong to the group
+DELETE FROM Group_ WHERE ClassNameId = 10005 AND classPK NOT IN (SELECT userId FROM User_)
+
+DELETE FROM Groups_Orgs WHERE groupid NOT IN (SELECT groupId FROM Group_)
+-- DELETE FROM Groups_Permissions WHERE groupid NOT IN (SELECT groupId FROM Group_)
+DELETE FROM Groups_Roles WHERE groupid NOT IN (SELECT groupId FROM Group_)
+DELETE FROM Groups_UserGroups WHERE groupid NOT IN (SELECT groupId FROM Group_)
+DELETE FROM UserGroupRole WHERE groupId NOT IN (SELECT groupId FROM Group_)
+-- DELETE FROM OrgGroupPermission WHERE groupId NOT IN (SELECT groupId FROM Group_)
+DELETE FROM OrgGroupRole WHERE groupId NOT IN (SELECT groupId FROM Group_)
+
+DELETE FROM JournalArticleImage WHERE groupid NOT IN (SELECT groupId FROM Group_)
+DELETE FROM JournalArticleResource WHERE groupid NOT IN (SELECT groupId FROM Group_)
+DELETE FROM JournalContentSearch WHERE groupId NOT IN (SELECT groupId FROM Group_)
+
+DELETE FROM Layout WHERE groupId NOT IN (SELECT groupId FROM Group_)
+DELETE FROM LayoutSet WHERE groupId NOT IN (SELECT groupId FROM Group_)
+
+-- delete others if need
+COMMIT TRANSACTION;
+PRINT 'Sucessfully deleted all users.'
+END TRY
+BEGIN CATCH
+IF XACT_STATE() <> 0
+BEGIN
+PRINT 'Delete user failed, please try again.'
+ROLLBACK TRANSACTION;
+END
+END CATCH;
+
+
+##################
+DELETE FROM masterdb.`user` where userId not in (SELECT userId FROM lportal62.User_)
+DELETE FROM masterdb.user_app where userId not in (SELECT userId FROM lportal62.User_)
+DELETE FROM masterdb.user_department where userId not in (SELECT userId FROM lportal62.User_)
+DELETE FROM masterdb.user_organization where userId not in (SELECT userId FROM lportal62.User_)
+DELETE FROM masterdb.user_role where userId not in (SELECT userId FROM lportal62.User_)
+DELETE FROM masterdb.user_title where userId not in (SELECT userId FROM lportal62.User_)
+DELETE FROM masterdb.useraccess where userId not in (SELECT userId FROM lportal62.User_)
+
+TRUNCATE TABLE masterdb.notification
+TRUNCATE TABLE masterdb.note
+
+DELETE FROM masterdb.person
+DELETE FROM masterdb.officer where personId not in (SELECT personId FROM masterdb.person)
