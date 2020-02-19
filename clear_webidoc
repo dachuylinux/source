@@ -1,0 +1,65 @@
+TRUNCATE TABLE webidoc.assignment_user_process;
+TRUNCATE TABLE webidoc.assignment_user;
+TRUNCATE TABLE webidoc.assignment;
+
+TRUNCATE TABLE webidoc.processgroup;
+TRUNCATE TABLE webidoc.processgroupmessage;
+TRUNCATE TABLE webidoc.attachedfile_processgroupmessage;
+TRUNCATE TABLE webidoc.doc_processdetail;
+TRUNCATE TABLE webidoc.attachedfile_docprocessdetail;
+TRUNCATE TABLE webidoc.extendedProcess;
+TRUNCATE TABLE webidoc.doc_process;
+
+TRUNCATE TABLE webidoc.externalidoc;
+TRUNCATE TABLE webidoc.externalidoc_status;
+TRUNCATE TABLE webidoc.links;
+TRUNCATE TABLE webidoc.idoc;
+
+TRUNCATE TABLE webidoc.odoc_gateway_inet;
+TRUNCATE TABLE webidoc.odoc_puborg;
+TRUNCATE TABLE webidoc.odoc_pubdept;
+TRUNCATE TABLE webidoc.odoc_pubuser;
+TRUNCATE TABLE webidoc.odoc_status_gateway_inet;
+TRUNCATE TABLE webidoc.odoceditfile;
+TRUNCATE TABLE webidoc.odoc;
+TRUNCATE TABLE webidoc.attachfile;
+TRUNCATE TABLE webidoc.attachfileexternalidoc;
+
+TRUNCATE TABLE webidoc.lotus_note_book;
+TRUNCATE TABLE webidoc.lotus_note_idoc;
+TRUNCATE TABLE webidoc.lotus_note_odoc;
+
+TRUNCATE TABLE webidoc.cvnd_idoc;
+TRUNCATE TABLE webidoc.cvnd_odoc;
+TRUNCATE TABLE webidoc.hkcc_idoc;
+TRUNCATE TABLE webidoc.hkcc_odoc;
+TRUNCATE TABLE webidoc.hssg_idoc;
+TRUNCATE TABLE webidoc.hssg_odoc;
+TRUNCATE TABLE webidoc.idoc_bvmt;
+TRUNCATE TABLE webidoc.idoc_khu2;
+TRUNCATE TABLE webidoc.edoc_khu2;
+TRUNCATE TABLE webidoc.idoc_khu3;
+TRUNCATE TABLE webidoc.khu4_idoc;
+TRUNCATE TABLE webidoc.khu4_odoc;
+TRUNCATE TABLE webidoc.ptqd_attachedfile;
+TRUNCATE TABLE webidoc.ptqd_edoc;
+TRUNCATE TABLE webidoc.ptqd_idoc;
+TRUNCATE TABLE webidoc.ptqd_odoc;
+
+TRUNCATE TABLE webidoc.idoc_status;
+TRUNCATE TABLE webidoc.idoc_status_gateway_inet;
+
+TRUNCATE TABLE webidoc.documents;
+TRUNCATE TABLE webidoc.document_permission;
+TRUNCATE TABLE webidoc.document_phases;
+TRUNCATE TABLE webidoc.documenttype_workflow;
+
+TRUNCATE TABLE webidoc.edms_attachfile;
+TRUNCATE TABLE webidoc.edms_dept;
+TRUNCATE TABLE webidoc.edms_doctype;
+TRUNCATE TABLE webidoc.edms_idoc;
+TRUNCATE TABLE webidoc.edms_odoc;
+TRUNCATE TABLE webidoc.edms_user;
+
+TRUNCATE TABLE webidoc.transferflow;
+TRUNCATE TABLE webidoc.transferflow_user;
