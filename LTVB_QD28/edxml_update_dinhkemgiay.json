@@ -1,0 +1,96 @@
+{
+   "header":{
+      "messageHeader":{
+         "from":{
+            "organId":"000.00.03.H29",
+            "organizationInCharge":"Sở Du lịch (test) - TPHCM",
+            "organName":"Sở Du lịch (test) - TPHCM",
+            "organAdd":"Sở Du lịch (test) - TPHCM"
+         },
+         "toes":[
+            {
+               "organId":"001.00.17.H29",
+               "organizationInCharge":"Sở Xây Dựng (test) - TPHCM",
+               "organName":"Sở Xây Dựng (test) - TPHCM",
+               "organAdd":"Sở Xây Dựng (test) - TPHCM"
+            }
+         ],
+         "documentId":"000.00.03.H29,2020/03/04,02/VPCP-TTĐT",
+         "code":{
+            "codeNumber":"01",
+            "codeNotation":"VPCP-TTĐT"
+         },
+         "promulgationInfo":{
+            "place":"Hà Nội",
+            "promulgationDate":"Mar 4, 2020 12:00:00 AM"
+         },
+         "documentType":{
+            "type":1,
+            "typeDetail":0,
+            "typeName":"Công văn"
+         },
+         "subject":"TEST liên thông vb QĐ-28 create new",
+         "content":"TEST liên thông vb QĐ-28 create new",
+         "dueDate":"Mar 9, 2019 12:00:00 AM",
+         "toPlaces":[
+            "Cac bo va co quan ngang bo",
+            "Uy ban nhan dan cac tinh, TP"
+         ],
+         "otherInfo":{
+            "priority":0,
+            "sphereOfPromulgation":"Liên thông văn bản quốc gia",
+            "typerNotation":"TDH",
+            "promulgationAmount":2,
+            "pageAmount":22
+         },
+         "steeringType":1
+      },
+      "traceHeaderList":{
+         "traceHeaders":[
+            {
+               "organId":"000.00.03.H29",
+               "timestamp":"Mar 4, 2020 12:00:00 AM"
+            }
+         ],
+         "bussiness":{
+            "bussinessDocType":2,
+            "bussinessDocReason":"Cập nhật văn bản cũ 02/VPCP-TTĐT thành văn bản đính kèm giấy",
+			"documentId":"000.00.03.H29,2020/03/04,02/VPCP-TTĐT",
+            "staffInfo":{
+               "department":"Văn thư văn phòng",
+               "staff":"Nguyễn Thị Ngọc Trâm",
+               "mobile":"84912000001",
+               "email":"vanthuvanphong@gov.vn"
+            },
+            "paper":1,
+            "bussinessDocumentInfo":{
+				"documentInfo":0,
+				"documentReceiver":0
+			}
+         }
+      },
+      "signature":{
+         "signedInfo":{
+            "canonicalizationMethod":"http://www.w3.org/TR/2001/REC-xml-c14n-20010315",
+            "signatureMethod":"http://www.w3.org/2000/09/xmldsig#rsa-sha1",
+            "reference":[
+               {
+                  "transforms":[
+                     "http://www.w3.org/2000/09/xmldsig#enveloped-signature",
+                     "http://www.w3.org/TR/xml-exc-c14n#"
+                  ],
+                  "digestMethod":"http://www.w3.org/2000/09/xmldsig#sha1",
+                  "digestValue":"FwgIqsSYJshUS2+wlOM61L+q7Aw\u003d"
+               }
+            ]
+         },
+         "signatureValue":"GbVb8n9+qFxz466Ag0sbpVdLPs2R0+9JBekp12UyarAZjoG0W/kPZZJ1auRZDcNcrSwzgkQMpqrjwxcy3ejzbY/ON5USUPgoYNYM8p4wsgQpEAeQaZ+EWLkkEBxYjb+iWEiAjYuJI7gtJoOyENcOK4fO050SXp2ctOc32LJMA5eEI6Hw7sxhc2LAgcPiynJHdDW2Z+eut6QZiUsbIF9+S3T6u/tfLImw39dgSlCxupwLPHepxuiLOqyd08HeJGCZufg9WqRBVyLFM76uCIaPRP5wwAdx72GVjPcG2kh+2jjrt7fqtJOufJzCObtQgPgBqIvDiZCGoOM41OQMiqtF3w\u003d\u003d",
+         "keyInfo":{
+            "x509Data":{
+               "x509SubjectName":"CN\u003duser05",
+               "x509Certificate":"MIIFqTCCBJG"
+            }
+         }
+      }
+   }
+}
