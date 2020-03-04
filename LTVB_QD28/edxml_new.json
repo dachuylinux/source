@@ -15,9 +15,9 @@
                "organAdd":"Sở Xây Dựng (test) - TPHCM"
             }
          ],
-         "documentId":"000.00.03.H29,2020/03/04,01/VPCP-TTĐT",
+         "documentId":"000.00.03.H29,2020/03/04,02/VPCP-TTĐT",
          "code":{
-            "codeNumber":"01",
+            "codeNumber":"02",
             "codeNotation":"VPCP-TTĐT"
          },
          "promulgationInfo":{
@@ -55,7 +55,7 @@
          "bussiness":{
             "bussinessDocType":0,
             "bussinessDocReason":"Văn bản điện tử mới",
-            "documentId":"000.00.00.G22,2014/02/30,7806/VPCP-TTĐT",
+            "documentId":"000.00.03.H29,2020/03/04,02/VPCP-TTĐT",
             "staffInfo":{
                "department":"Văn thư văn phòng",
                "staff":"Nguyễn Thị Ngọc Trâm",
